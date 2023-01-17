@@ -1,23 +1,25 @@
 <script setup>
 import NavLinksView from "./views/NavLinksView.vue";
+import AttributionView from "./views/AttributionView.vue";
 </script>
 
 <template>
-  <div class="outer">
+  <!-- <div class="outer">
     <div class="middle">
-      <div class="inner">
-        <div class="container">
-          <NavLinksView class="nav-links-view" />
-          <router-view />
-        </div>
-      </div>
-    </div>
+      <div class="inner"> -->
+  <div class="container">
+    <NavLinksView class="nav-links-view" />
+    <router-view />
   </div>
+  <AttributionView />
+  <!-- </div>
+    </div>
+  </div> -->
 </template>
 
 <style scoped>
 /*-----Perfectly vertically align div-----*/
-.outer {
+/* .outer {
   display: table;
   position: absolute;
   top: 0;
@@ -32,11 +34,12 @@ import NavLinksView from "./views/NavLinksView.vue";
 .inner {
   margin-left: auto;
   margin-right: auto;
-}
+} */
 /*_____Perfectly vertically align div_____*/
 .container {
   margin-left: 10px;
   display: flex;
+  width: 100%;
 }
 
 /* #app {

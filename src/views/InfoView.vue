@@ -2,7 +2,7 @@
   <form>
     <h1>Personal info</h1>
     <p>Please provide your name, email address, and phone number.</p>
-    <div>
+    <div class="form__named-input">
       <div class="form__label-container">
         <label for="name">Name</label>
         <span class="form__error"></span>
@@ -14,7 +14,7 @@
         placeholder="e.g. Stephen King"
       />
     </div>
-    <div>
+    <div class="form__named-input">
       <div class="form__label-container">
         <label for="email">Email Address</label>
         <span class="form__error" v-if="isValidEmail == false"
@@ -30,7 +30,7 @@
         placeholder="e.g. stephenking@lorem.com"
       />
     </div>
-    <div>
+    <div class="form__named-input">
       <div class="form__label-container">
         <label for="phone">Phone Number</label>
         <span class="form__error" v-if="phoneNumber == ''"
@@ -39,55 +39,45 @@
       </div>
       <input
         class="form__input"
-        type="number"
+        type="tel"
         id="phone"
         v-model="phoneNumber"
         required
         placeholder="e.g. +1 234 567 890"
       />
     </div>
-    <input class="form__submit" type="submit" text="Submit" />
+    <button
+      class="form__next-page-button"
+      type="button"
+      v-on:click.prevent="nextPage"
+    >
+      Next step
+    </button>
   </form>
 </template>
 
 <style>
-:root {
-  --color-marine-blue: hsl(213, 96%, 18%);
-  --color-purplish-blue: hsl(243, 100%, 62%);
-  --color-pastel-blue: hsl(228, 100%, 84%);
-  --color-light-blue: hsl(206, 94%, 87%);
-  --color-strawberry-red: hsl(354, 84%, 57%);
-
-  --color-cool-gray: hsl(231, 11%, 63%);
-  --color-light-gray: hsl(229, 24%, 87%);
-  --color-magnolia: hsl(217, 100%, 97%);
-  --color-alabaster: hsl(231, 100%, 99%);
-  --color-white: hsl(0, 0%, 100%);
-
-  --weight-small: 400;
-  --weight-medium: 500;
-  --weight-large: 700;
-
-  --border-radius: 5px;
-}
 form {
   display: flex;
   flex-direction: column;
 
   position: relative; /* for other element can position: absolute */
   margin: 30px 80px;
+  flex-grow: 1000;
 }
 form h1 {
   margin: 0;
   color: var(--color-marine-blue);
   font-family: var(--font);
+  font-size: 3em;
 }
 form p {
   margin: 0 0 20px;
   color: var(--color-cool-gray);
   font-weight: var(--weight-large);
+  font-size: 1em;
 }
-form > div {
+.form__named-input {
   padding: 10px 0;
 }
 .form__label-container {
@@ -95,13 +85,17 @@ form > div {
 }
 form label {
   color: var(--color-marine-blue);
+  font-size: 0.8em;
 }
 .form__input {
   color: var(--color-marine-blue);
   border-color: var(--color-cool-gray);
   border-radius: var(--border-radius);
   display: block;
-  width: auto;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 1em;
 }
 .form__input::placeholder {
   color: var(--color-light-gray);
@@ -120,23 +114,24 @@ form label {
   position: absolute;
   right: 0;
 }
-form input[type="submit"] {
+.form__next-page-button {
   background: var(--color-marine-blue);
   font-weight: var(--weight-medium);
   color: var(--color-white);
-  border: 0px solid black;
+  border-width: 0px;
   display: inline;
   width: fit-content;
   position: absolute;
   right: 0;
   bottom: 0;
   border-radius: var(--border-radius);
-  padding: 8px 20px;
+  padding: 12px 22px;
 }
 </style>
 
 <script setup>
 import { ref, computed } from "vue";
+import { useRouter } from "vue-router";
 
 const email = ref("");
 const phoneNumber = ref("");
@@ -146,4 +141,9 @@ function validEmail(email) {
   return re.test(email);
 }
 const isValidEmail = computed(() => validEmail(email.value));
+function nextPage() {
+  console.log(1);
+  const router = useRouter();
+  router.push("/plan");
+}
 </script>
