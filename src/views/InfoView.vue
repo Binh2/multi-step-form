@@ -49,7 +49,7 @@
     <button
       class="form__next-page-button"
       type="button"
-      v-on:click.prevent="nextPage"
+      v-on:click.prevent="nextPage()"
     >
       Next step
     </button>
@@ -129,21 +129,32 @@ form label {
 }
 </style>
 
-<script setup>
+<script>
 import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
 
-const email = ref("");
-const phoneNumber = ref("");
-const re =
-  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-function validEmail(email) {
-  return re.test(email);
-}
-const isValidEmail = computed(() => validEmail(email.value));
-function nextPage() {
-  console.log(1);
-  const router = useRouter();
-  router.push("/plan");
-}
+export default {
+  setup() {
+    const email = ref("");
+    const phoneNumber = ref("");
+    const re =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    function validEmail(email) {
+      return re.test(email);
+    }
+    const isValidEmail = computed(() => validEmail(email.value));
+    const router = useRouter();
+    function nextPage() {
+      router.push("/plan");
+      // this.$router.push("/plan");
+    }
+    return {
+      email,
+      phoneNumber,
+      re,
+      isValidEmail,
+      nextPage,
+    };
+  },
+};
 </script>
