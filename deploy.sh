@@ -12,6 +12,7 @@ npm run build
 # if you are deploying to a custom domain
 # echo 'www.example.com' > CNAME
 
+# git remote set-url origin git@github.com:Binh2/multi-step-form.git
 git init
 git add -A
 git commit -m 'deploy'
