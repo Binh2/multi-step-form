@@ -46,37 +46,11 @@
         placeholder="e.g. +1 234 567 890"
       />
     </div>
-    <button
-      class="form__next-page-button"
-      type="button"
-      v-on:click.prevent="nextPage()"
-    >
-      Next step
-    </button>
+    <NextPageButton to="/plan" />
   </form>
 </template>
 
-<style>
-form {
-  display: flex;
-  flex-direction: column;
-
-  position: relative; /* for other element can position: absolute */
-  margin: 30px 80px;
-  flex-grow: 1000;
-}
-form h1 {
-  margin: 0;
-  color: var(--color-marine-blue);
-  font-family: var(--font);
-  font-size: 3em;
-}
-form p {
-  margin: 0 0 20px;
-  color: var(--color-cool-gray);
-  font-weight: var(--weight-large);
-  font-size: 1em;
-}
+<style scoped>
 .form__named-input {
   padding: 10px 0;
 }
@@ -114,26 +88,17 @@ form label {
   position: absolute;
   right: 0;
 }
-.form__next-page-button {
-  background: var(--color-marine-blue);
-  font-weight: var(--weight-medium);
-  color: var(--color-white);
-  border-width: 0px;
-  display: inline;
-  width: fit-content;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  border-radius: var(--border-radius);
-  padding: 12px 22px;
-}
 </style>
 
 <script>
 import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
+import NextPageButton from "../components/NextPageButton.vue";
 
 export default {
+  components: {
+    NextPageButton,
+  },
   setup() {
     const email = ref("");
     const phoneNumber = ref("");
@@ -146,7 +111,6 @@ export default {
     const router = useRouter();
     function nextPage() {
       router.push("/plan");
-      // this.$router.push("/plan");
     }
     return {
       email,

@@ -41,6 +41,15 @@ import AttributionView from "./views/AttributionView.vue";
   display: flex;
   width: 100%;
 }
+.container form {
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+  /* for other element can position: absolute */
+  margin: 30px 80px;
+  flex-grow: 1000;
+}
 
 /* #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

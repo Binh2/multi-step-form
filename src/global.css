@@ -1,0 +1,44 @@
+:root {
+  --color-marine-blue: hsl(213, 96%, 18%);
+  --color-purplish-blue: hsl(243, 100%, 62%);
+  --color-pastel-blue: hsl(228, 100%, 84%);
+  --color-light-blue: hsl(206, 94%, 87%);
+  --color-strawberry-red: hsl(354, 84%, 57%);
+
+  --color-cool-gray: hsl(231, 11%, 63%);
+  --color-light-gray: hsl(229, 24%, 87%);
+  --color-magnolia: hsl(217, 100%, 97%);
+  --color-alabaster: hsl(231, 100%, 99%);
+  --color-white: hsl(0, 0%, 100%);
+
+  --weight-small: 400;
+  --weight-medium: 500;
+  --weight-large: 700;
+
+  --border-radius: 5px;
+
+  font-size: 16px;
+  overflow: hidden;
+}
+* {
+  font-family: Ubuntu;
+}
+
+h1 {
+  margin: 0;
+  color: var(--color-marine-blue);
+  font-family: var(--font);
+  font-size: 3em;
+}
+h2 {
+  margin: 0;
+  color: var(--color-marine-blue);
+  font-family: var(--font);
+  font-size: 1.2em;
+}
+p {
+  margin: 0 0 20px;
+  color: var(--color-cool-gray);
+  font-weight: var(--weight-large);
+  font-size: 1em;
+}
