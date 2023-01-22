@@ -18,7 +18,10 @@
     <div class="form__named-input">
       <div class="form__label-container">
         <label for="email">Email Address</label>
-        <span class="form__error" v-if="!store.isValidEmail"
+        <span class="form__error" v-if="store.email == ''">
+          This field is required
+        </span>
+        <span class="form__error" v-else-if="!store.isValidEmail"
           >Email is invalid</span
         >
       </div>
@@ -34,7 +37,7 @@
     <div class="form__named-input">
       <div class="form__label-container">
         <label for="phone">Phone Number</label>
-        <span class="form__error" v-if="phoneNumber == ''"
+        <span class="form__error" v-if="store.phoneNumber == ''"
           >This field is required</span
         >
       </div>
@@ -64,7 +67,7 @@ form label {
 }
 .form__input {
   color: var(--color-marine-blue);
-  border-color: var(--color-cool-gray);
+  border: 1px solid var(--color-cool-gray);
   border-radius: var(--border-radius);
   display: block;
   box-sizing: border-box;

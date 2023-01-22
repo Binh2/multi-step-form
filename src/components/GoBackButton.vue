@@ -24,6 +24,9 @@
   padding: 12px 22px;
   cursor: pointer;
 }
+.previous-page-button:hover {
+  color: var(--color-marine-blue);
+}
 </style>
 
 <script>

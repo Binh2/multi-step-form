@@ -19,6 +19,9 @@
   padding: 12px 22px;
   cursor: pointer;
 }
+.confirm-button:hover {
+  opacity: 0.7;
+}
 </style>
 
 <script>

@@ -18,8 +18,8 @@
         <p>
           ${{
             store.chooseMonthlyPlan
-              ? store.plans.arcade.dollarPerMonth
-              : store.plans.arcade.dollarPerYear
+              ? store.plans[store.chosenPlanName].dollarPerMonth
+              : store.plans[store.chosenPlanName].dollarPerYear
           }}/{{ store.chooseMonthlyPlan ? "mo" : "yr" }}
         </p>
       </div>
@@ -36,8 +36,8 @@
           <p>
             +${{
               store.chooseMonthlyPlan
-                ? store.addOns.customTheme.dollarPerMonth
-                : store.addOns.customTheme.dollarPerYear
+                ? store.addOns[chosenAddOn].dollarPerMonth
+                : store.addOns[chosenAddOn].dollarPerYear
             }}/{{ store.chooseMonthlyPlan ? "mo" : "yr" }}
           </p>
         </div>
@@ -47,7 +47,7 @@
     <div class="price-sum-container">
       <h2>Total (per {{ store.chooseMonthlyPlan ? "month" : "year" }})</h2>
       <p>
-        +${{
+        ${{
           store.chooseMonthlyPlan
             ? store.dollarPerMonthSum
             : store.dollarPerYearSum
@@ -94,11 +94,11 @@ form > div {
 .plan-price-container > div {
   flex: 1;
 }
-.plan-price-container a:hover {
-  color: var(--color-purplish-blue);
-}
 .plan-price-container a:visited {
   color: var(--color-cool-gray);
+}
+.plan-price-container a:hover {
+  color: var(--color-purplish-blue);
 }
 .plan-price-container p {
   color: var(--color-marine-blue);

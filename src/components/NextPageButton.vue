@@ -1,6 +1,6 @@
 <template>
   <button
-    class="form__next-page-button"
+    class="next-page-button"
     type="button"
     v-on:click.prevent="nextPage()"
   >
@@ -9,7 +9,7 @@
 </template>
 
 <style>
-.form__next-page-button {
+.next-page-button {
   background: var(--color-marine-blue);
   font-weight: var(--weight-medium);
   color: var(--color-white);
@@ -23,6 +23,9 @@
   padding: 12px 22px;
 
   cursor: pointer;
+}
+.next-page-button:hover {
+  opacity: 0.95;
 }
 </style>
 
