@@ -10,14 +10,28 @@
         name="plan-name"
         id="plan-name--arcade"
         value="arcade"
-        checked
+        v-model="store.chosenPlanName"
       />
       <label class="plan-name-container__label" for="plan-name--arcade">
         <img src="../assets/images/icon-arcade.svg" />
         <h2>Arcade</h2>
-        <p>$9/mo</p>
-        <p v-if="!monthlyChecked" class="plan-name-container__special-offer">
-          2 months free
+        <p>
+          ${{
+            store.chooseMonthlyPlan
+              ? store.plans.arcade.dollarPerMonth
+              : store.plans.arcade.dollarPerYear
+          }}/{{ store.chooseMonthlyPlan ? "mo" : "yr" }}
+        </p>
+        <p
+          v-bind:style="store.chooseMonthlyPlan ? { visibility: 'hidden' } : {}"
+          class="plan-name-container__special-offer"
+        >
+          {{
+            (store.plans.arcade.dollarPerMonth * 12 -
+              store.plans.arcade.dollarPerYear) /
+            store.plans.arcade.dollarPerMonth
+          }}
+          months free
         </p>
       </label>
       <input
@@ -26,13 +40,28 @@
         name="plan-name"
         id="plan-name--advanced"
         value="advanced"
+        v-model="store.chosenPlanName"
       />
       <label class="plan-name-container__label" for="plan-name--advanced">
         <img src="../assets/images/icon-advanced.svg" />
         <h2>Advanced</h2>
-        <p>$12/mo</p>
-        <p v-if="!monthlyChecked" class="plan-name-container__special-offer">
-          2 months free
+        <p>
+          ${{
+            store.chooseMonthlyPlan
+              ? store.plans.advanced.dollarPerMonth
+              : store.plans.advanced.dollarPerYear
+          }}/{{ store.chooseMonthlyPlan ? "mo" : "yr" }}
+        </p>
+        <p
+          v-bind:style="store.chooseMonthlyPlan ? { visibility: 'hidden' } : {}"
+          class="plan-name-container__special-offer"
+        >
+          {{
+            (store.plans.arcade.dollarPerMonth * 12 -
+              store.plans.arcade.dollarPerYear) /
+            store.plans.arcade.dollarPerMonth
+          }}
+          months free
         </p>
       </label>
       <input
@@ -41,13 +70,28 @@
         name="plan-name"
         id="plan-name--pro"
         value="pro"
+        v-model="store.chosenPlanName"
       />
       <label class="plan-name-container__label" for="plan-name--pro">
         <img src="../assets/images/icon-pro.svg" />
         <h2>Pro</h2>
-        <p>$15/mo</p>
-        <p v-if="!monthlyChecked" class="plan-name-container__special-offer">
-          2 months free
+        <p>
+          ${{
+            store.chooseMonthlyPlan
+              ? store.plans.pro.dollarPerMonth
+              : store.plans.pro.dollarPerYear
+          }}/{{ store.chooseMonthlyPlan ? "mo" : "yr" }}
+        </p>
+        <p
+          v-bind:style="store.chooseMonthlyPlan ? { visibility: 'hidden' } : {}"
+          class="plan-name-container__special-offer"
+        >
+          {{
+            (store.plans.arcade.dollarPerMonth * 12 -
+              store.plans.arcade.dollarPerYear) /
+            store.plans.arcade.dollarPerMonth
+          }}
+          months free
         </p>
       </label>
     </div>
@@ -59,7 +103,7 @@
         name="plan-duration"
         id="plan-duration-container__monthly-checkbox"
         value="monthly"
-        v-model="monthlyChecked"
+        v-model="store.chooseMonthlyPlan"
       />
       <label
         class="plan-duration-container__monthly-label plan-duration-container__label"
@@ -174,17 +218,16 @@
 <script>
 import NextPageButton from "../components/NextPageButton.vue";
 import GoBackButton from "../components/GoBackButton.vue";
-import { ref } from "vue";
+import { store } from "../store.js";
+
 export default {
   components: {
     NextPageButton,
     GoBackButton,
   },
   setup() {
-    const monthlyChecked = ref(true);
-
     return {
-      monthlyChecked,
+      store,
     };
   },
 };

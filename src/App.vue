@@ -9,7 +9,7 @@ import AttributionView from "./views/AttributionView.vue";
       <div class="inner"> -->
   <div class="container">
     <NavLinksView class="nav-links-view" />
-    <router-view />
+    <router-view class="router-view" />
   </div>
   <AttributionView />
   <!-- </div>
@@ -41,13 +41,13 @@ import AttributionView from "./views/AttributionView.vue";
   display: flex;
   width: 100%;
 }
-.container form {
+.router-view {
   display: flex;
   flex-direction: column;
 
   position: relative;
   /* for other element can position: absolute */
-  margin: 30px 80px;
+  margin: 10vh 10vw;
   flex-grow: 1000;
 }
 

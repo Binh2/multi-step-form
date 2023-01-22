@@ -12,12 +12,13 @@
         type="text"
         id="name"
         placeholder="e.g. Stephen King"
+        v-model="store.name"
       />
     </div>
     <div class="form__named-input">
       <div class="form__label-container">
         <label for="email">Email Address</label>
-        <span class="form__error" v-if="isValidEmail == false"
+        <span class="form__error" v-if="!store.isValidEmail"
           >Email is invalid</span
         >
       </div>
@@ -25,8 +26,8 @@
         class="form__input"
         type="email"
         id="email"
-        v-bind:class="{ invalid: !isValidEmail }"
-        v-model="email"
+        v-bind:class="{ invalid: !store.isValidEmail }"
+        v-model="store.email"
         placeholder="e.g. stephenking@lorem.com"
       />
     </div>
@@ -41,7 +42,7 @@
         class="form__input"
         type="tel"
         id="phone"
-        v-model="phoneNumber"
+        v-model="store.phoneNumber"
         required
         placeholder="e.g. +1 234 567 890"
       />
@@ -91,33 +92,17 @@ form label {
 </style>
 
 <script>
-import { ref, computed } from "vue";
-import { useRouter } from "vue-router";
 import NextPageButton from "../components/NextPageButton.vue";
+import { store } from "../store.js";
 
 export default {
   components: {
     NextPageButton,
   },
   setup() {
-    const email = ref("");
-    const phoneNumber = ref("");
-    const re =
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    function validEmail(email) {
-      return re.test(email);
-    }
-    const isValidEmail = computed(() => validEmail(email.value));
-    const router = useRouter();
-    function nextPage() {
-      router.push("/plan");
-    }
     return {
-      email,
-      phoneNumber,
-      re,
-      isValidEmail,
-      nextPage,
+      store,
+      NextPageButton,
     };
   },
 };

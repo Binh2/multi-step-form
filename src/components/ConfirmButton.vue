@@ -6,7 +6,7 @@
 
 <style>
 .confirm-button {
-  background: var(--color-marine-blue);
+  background: var(--color-purplish-blue);
   font-weight: var(--weight-medium);
   color: var(--color-white);
   border-width: 0px;
@@ -28,7 +28,7 @@ export default {
   setup() {
     const router = useRouter();
     function confirm() {
-      router.push("/thankyou");
+      router.push("/thank-you");
     }
     return {
       confirm,

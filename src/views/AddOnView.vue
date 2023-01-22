@@ -8,7 +8,7 @@
       type="checkbox"
       name="add-on"
       value="multiplayer"
-      v-bind:checked="multiplayerChecked"
+      v-bind:checked="store.addMultiplayer"
       disabled
     />
     <label class="add-on-container" for="add-on--multiplayer">
@@ -16,13 +16,19 @@
         class="add-on-container__visible-checkbox"
         type="checkbox"
         id="add-on--multiplayer"
-        v-model="multiplayerChecked"
+        v-model="store.addMultiplayer"
       />
       <div>
         <h2>Online service</h2>
         <p>Access to multiplayer games</p>
       </div>
-      <p>+$1/mo</p>
+      <p>
+        +${{
+          store.chooseMonthlyPlan
+            ? store.addOns.multiplayer.dollarPerMonth
+            : store.addOns.multiplayer.dollarPerYear
+        }}/{{ store.chooseMonthlyPlan ? "mo" : "yr" }}
+      </p>
     </label>
 
     <input
@@ -30,7 +36,7 @@
       type="checkbox"
       name="add-on"
       value="larger-storage"
-      v-bind:checked="largerStorageChecked"
+      v-bind:checked="store.addLargerStorage"
       disabled
     />
     <label class="add-on-container" for="add-on--larger-storage">
@@ -38,20 +44,26 @@
         class="add-on-container__visible-checkbox"
         type="checkbox"
         id="add-on--larger-storage"
-        v-model="largerStorageChecked"
+        v-model="store.addLargerStorage"
       />
       <div>
         <h2>Larger storage</h2>
         <p>Extra 1TB of cloud save</p>
       </div>
-      <p>+$2/mo</p>
+      <p>
+        +${{
+          store.chooseMonthlyPlan
+            ? store.addOns.largerStorage.dollarPerMonth
+            : store.addOns.largerStorage.dollarPerYear
+        }}/{{ store.chooseMonthlyPlan ? "mo" : "yr" }}
+      </p>
     </label>
     <input
       class="add-on-container__invisible-checkbox"
       type="checkbox"
       name="add-on"
       value="custom-them"
-      v-bind:checked="customThemeChecked"
+      v-bind:checked="store.addCustomTheme"
       disabled
     />
     <label class="add-on-container" for="add-on--custom-theme">
@@ -59,13 +71,19 @@
         class="add-on-container__visible-checkbox"
         type="checkbox"
         id="add-on--custom-theme"
-        v-model="customThemeChecked"
+        v-model="store.addCustomTheme"
       />
       <div>
         <h2>Customizable Profile</h2>
         <p>Custom theme on your profile</p>
       </div>
-      <p>+$2/mo</p>
+      <p>
+        +${{
+          store.chooseMonthlyPlan
+            ? store.addOns.customTheme.dollarPerMonth
+            : store.addOns.customTheme.dollarPerYear
+        }}/{{ store.chooseMonthlyPlan ? "mo" : "yr" }}
+      </p>
     </label>
 
     <GoBackButton to="/plan" />
@@ -74,25 +92,6 @@
 </template>
 
 <style scoped>
-:root {
-  --color-marine-blue: hsl(213, 96%, 18%);
-  --color-purplish-blue: hsl(243, 100%, 62%);
-  --color-pastel-blue: hsl(228, 100%, 84%);
-  --color-light-blue: hsl(206, 94%, 87%);
-  --color-strawberry-red: hsl(354, 84%, 57%);
-
-  --color-cool-gray: hsl(231, 11%, 63%);
-  --color-light-gray: hsl(229, 24%, 87%);
-  --color-magnolia: hsl(217, 100%, 97%);
-  --color-alabaster: hsl(231, 100%, 99%);
-  --color-white: hsl(0, 0%, 100%);
-
-  --weight-small: 400;
-  --weight-medium: 500;
-  --weight-large: 700;
-
-  --border-radius: 5px;
-}
 form {
   --row-gap: 20px;
 }
@@ -142,7 +141,7 @@ form > label:first-of-type {
 <script>
 import NextPageButton from "../components/NextPageButton.vue";
 import GoBackButton from "../components/GoBackButton.vue";
-import { ref } from "vue";
+import { store } from "../store.js";
 
 export default {
   components: {
@@ -150,14 +149,8 @@ export default {
     GoBackButton,
   },
   setup() {
-    const multiplayerChecked = ref(true);
-    const largerStorageChecked = ref(true);
-    const customThemeChecked = ref(false);
-
     return {
-      multiplayerChecked,
-      largerStorageChecked,
-      customThemeChecked,
+      store,
     };
   },
 };
