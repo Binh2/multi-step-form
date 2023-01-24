@@ -89,6 +89,9 @@ https://user-images.githubusercontent.com/53990204/214286112-36fe467f-3dd2-4abc-
   }
 </style>
 ```
+
+#### CSS
+
 ```css
 /* To change checkbox color */
 .input-type-checkbox {
