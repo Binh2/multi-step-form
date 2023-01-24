@@ -58,25 +58,6 @@
 </template>
 
 <style>
-:root {
-  --color-marine-blue: hsl(213, 96%, 18%);
-  --color-purplish-blue: hsl(243, 100%, 62%);
-  --color-pastel-blue: hsl(228, 100%, 84%);
-  --color-light-blue: hsl(206, 94%, 87%);
-  --color-strawberry-red: hsl(354, 84%, 57%);
-
-  --color-cool-gray: hsl(231, 11%, 63%);
-  --color-light-gray: hsl(229, 24%, 87%);
-  --color-magnolia: hsl(217, 100%, 97%);
-  --color-alabaster: hsl(231, 100%, 99%);
-  --color-white: hsl(0, 0%, 100%);
-
-  --weight-small: 400;
-  --weight-medium: 500;
-  --weight-large: 700;
-
-  --border-radius: 5px;
-}
 form > div {
   padding: 20px;
 }
@@ -93,6 +74,7 @@ form > div {
 }
 .plan-price-container a {
   font-weight: var(--weight-large);
+  color: var(--color-cool-gray);
 }
 .plan-price-container a:visited {
   color: var(--color-cool-gray);
@@ -124,8 +106,8 @@ hr {
 }
 .add-on-price-container h2 {
   flex: 1;
-  color: var(--color-light-gray);
-  font-size: 1.1em;
+  color: var(--color-cool-gray);
+  font-size: 1em;
   font-weight: var(--weight-medium);
 }
 .add-on-price-container p {
@@ -140,8 +122,9 @@ hr {
 .price-sum-container h2 {
   flex: 1;
   color: var(--color-light-gray);
-  font-size: 1.1em;
-  font-weight: var(--weight-medium);
+  font-size: 1em;
+  font-weight: var(--weight-large);
+  color: var(--color-cool-gray);
 }
 .price-sum-container p {
   font-size: 1.2em;
