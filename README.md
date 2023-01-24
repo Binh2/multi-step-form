@@ -171,7 +171,7 @@ npm run build
 npm run deploy
 ```
 
-## Need more info on customizing configuration 
+## Need more info on customizing Vue CLI configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## Author
