@@ -7,14 +7,11 @@
 <style>
 .confirm-button {
   background: var(--color-purplish-blue);
-  font-weight: var(--weight-medium);
+  font-weight: var(--weight-large);
   color: var(--color-white);
   border-width: 0px;
   display: inline;
   width: fit-content;
-  position: absolute;
-  right: 0;
-  bottom: 0;
   border-radius: var(--border-radius);
   padding: 12px 22px;
   cursor: pointer;

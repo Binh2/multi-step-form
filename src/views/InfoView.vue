@@ -1,5 +1,5 @@
 <template>
-  <form>
+  <form v-bind:class="$mq">
     <h1>Personal info</h1>
     <p>Please provide your name, email address, and phone number.</p>
     <div class="form__named-input">
@@ -50,7 +50,6 @@
         placeholder="e.g. +1 234 567 890"
       />
     </div>
-    <NextPageButton to="/plan" />
   </form>
 </template>
 
@@ -64,6 +63,7 @@
 form label {
   color: var(--color-marine-blue);
   font-size: 0.8em;
+  font-weight: var(--weight-large);
 }
 .form__input {
   color: var(--color-marine-blue);
@@ -91,21 +91,17 @@ form label {
   color: var(--color-strawberry-red);
   position: absolute;
   right: 0;
+  font-weight: var(--weight-large);
 }
 </style>
 
 <script>
-import NextPageButton from "../components/NextPageButton.vue";
 import { store } from "../store.js";
 
 export default {
-  components: {
-    NextPageButton,
-  },
   setup() {
     return {
       store,
-      NextPageButton,
     };
   },
 };

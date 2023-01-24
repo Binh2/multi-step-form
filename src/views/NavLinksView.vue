@@ -1,9 +1,5 @@
 <template>
   <nav>
-    <!-- <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> |
-    <router-link to="/info">Your info</router-link> | -->
-    <!-- <img src="../assets/images/bg-sidebar-desktop.svg" /> -->
     <NavLink class="nav__link" index="1" to="/">YOUR INFO</NavLink>
     <NavLink class="nav__link" index="2" to="/plan">SELECT PLAN</NavLink>
     <NavLink class="nav__link" index="3" to="/add-on">ADD-ONS</NavLink>
@@ -15,7 +11,9 @@
 import NavLink from "../components/NavLink.vue";
 </script>
 
-<style scoped>
+<style scoped lang="less">
+@import "../global.less";
+
 nav {
   --width: 274;
   --height: 568;
@@ -23,5 +21,19 @@ nav {
   background-size: cover;
   height: 95vh;
   width: calc(95vh / (var(--height) / var(--width)));
+}
+
+@media (max-aspect-ratio: @max-aspect-ratio) {
+  nav {
+    --width: 375;
+    --height: 172;
+    width: 100vw;
+    height: calc(100vw / var(--width) * var(--height));
+    background-image: url("../assets/images/bg-sidebar-mobile.svg");
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
 }
 </style>

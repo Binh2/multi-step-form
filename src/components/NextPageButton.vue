@@ -8,17 +8,15 @@
   </button>
 </template>
 
-<style>
+<style scoped lang="less">
+@import "../global.less";
 .next-page-button {
   background: var(--color-marine-blue);
-  font-weight: var(--weight-medium);
+  font-weight: var(--weight-large);
   color: var(--color-white);
   border-width: 0px;
   display: inline;
   width: fit-content;
-  position: absolute;
-  right: 0;
-  bottom: 0;
   border-radius: var(--border-radius);
   padding: 12px 22px;
 
@@ -26,6 +24,12 @@
 }
 .next-page-button:hover {
   opacity: 0.95;
+}
+@media (max-aspect-ratio: @max-aspect-ratio) {
+  .next-page-button {
+    right: 0;
+    bottom: 0;
+  }
 }
 </style>
 

@@ -54,9 +54,6 @@
         }}/{{ store.chooseMonthlyPlan ? "mo" : "yr" }}
       </p>
     </div>
-
-    <GoBackButton to="/add-on" />
-    <ConfirmButton />
   </form>
 </template>
 
@@ -93,6 +90,9 @@ form > div {
 }
 .plan-price-container > div {
   flex: 1;
+}
+.plan-price-container a {
+  font-weight: var(--weight-large);
 }
 .plan-price-container a:visited {
   color: var(--color-cool-gray);
@@ -150,15 +150,9 @@ hr {
 </style>
 
 <script>
-import ConfirmButton from "../components/ConfirmButton.vue";
-import GoBackButton from "../components/GoBackButton.vue";
 import { store } from "../store.js";
 
 export default {
-  components: {
-    ConfirmButton,
-    GoBackButton,
-  },
   setup() {
     return {
       store,

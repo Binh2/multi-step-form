@@ -12,14 +12,11 @@
 .previous-page-button {
   color: var(--color-cool-gray);
   background: var(--color-white);
-  font-weight: var(--weight-medium);
+  font-weight: var(--weight-large);
 
   border-width: 0px;
   display: inline;
   width: fit-content;
-  position: absolute;
-  left: 0;
-  bottom: 0;
   border-radius: var(--border-radius);
   padding: 12px 22px;
   cursor: pointer;

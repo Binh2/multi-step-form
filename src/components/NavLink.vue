@@ -17,7 +17,8 @@ module.exports = {
 };
 </script>
 
-<style scoped>
+<style scoped lang="less">
+@import "../global.less";
 .router-link {
   display: grid;
   font-size: 1em;
@@ -34,20 +35,20 @@ module.exports = {
 }
 .router-link__numbering {
   grid-area: numbering;
+  --size: 32px;
+  width: var(--size);
+  height: var(--size);
   border: 2px solid var(--color-alabaster);
-  color: var(--color-alabaster);
   border-radius: 100%;
-  display: inline-block;
 
-  --width: 30px;
-  width: var(--width);
-  height: var(--width);
-
-  text-align: center;
-  line-height: var(--width);
+  color: var(--color-alabaster);
   font-weight: var(--weight-large);
 
-  margin: auto;
+  /* Center text horizontally and vertically in div */
+  box-sizing: content-box;
+  text-align: center;
+  vertical-align: middle;
+  line-height: var(--size);
 }
 .router-link.router-link-exact-active .router-link__numbering {
   background: var(--color-light-blue);
@@ -59,10 +60,26 @@ module.exports = {
   color: var(--color-light-gray);
   font-weight: var(--weight-medium);
   font-size: 0.8em;
+  font-weight: var(--weight-large);
 }
 .router-link__text {
   grid-area: text;
   color: var(--color-white);
   font-weight: var(--weight-large);
+}
+@media (max-aspect-ratio: @max-aspect-ratio) {
+  .router-link {
+    grid-template-areas:
+      "numbering numbering"
+      "numbering numbering";
+    padding: 0;
+    margin: 25px 10px;
+  }
+  .router-link__step-numbering {
+    display: none;
+  }
+  .router-link__text {
+    display: none;
+  }
 }
 </style>

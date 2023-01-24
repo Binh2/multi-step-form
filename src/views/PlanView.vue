@@ -127,8 +127,6 @@
         >Yearly</label
       >
     </div>
-    <GoBackButton to="/" />
-    <NextPageButton to="/add-on" />
   </form>
 </template>
 
@@ -177,6 +175,9 @@
   padding: 10px 0;
   margin: 35px 0;
 }
+.plan-duration-container__label {
+  font-weight: bold;
+}
 .plan-duration-container__monthly-checkbox {
   display: none;
 }
@@ -216,15 +217,9 @@
 </style>
 
 <script>
-import NextPageButton from "../components/NextPageButton.vue";
-import GoBackButton from "../components/GoBackButton.vue";
 import { store } from "../store.js";
 
 export default {
-  components: {
-    NextPageButton,
-    GoBackButton,
-  },
   setup() {
     return {
       store,

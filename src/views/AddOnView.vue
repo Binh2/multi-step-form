@@ -85,9 +85,6 @@
         }}/{{ store.chooseMonthlyPlan ? "mo" : "yr" }}
       </p>
     </label>
-
-    <GoBackButton to="/plan" />
-    <NextPageButton to="/summary" />
   </form>
 </template>
 
@@ -139,15 +136,9 @@ form > label:first-of-type {
 </style>
 
 <script>
-import NextPageButton from "../components/NextPageButton.vue";
-import GoBackButton from "../components/GoBackButton.vue";
 import { store } from "../store.js";
 
 export default {
-  components: {
-    NextPageButton,
-    GoBackButton,
-  },
   setup() {
     return {
       store,
