@@ -194,5 +194,5 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## Acknowledgments
 
-Big thanks to [Frontend Mentor](https://www.frontendmentor.io/) to give me the idea to do this project.
-Thanks to [Nikola D](https://www.frontendmentor.io/profile/Nikola1232456) for suggesting me to reset CSS on my previous solution, aka [News homepage](https://binh2.github.io/news-homepage/).
+- Big thanks to [Frontend Mentor](https://www.frontendmentor.io/) to give me the idea to do this project.
+- Thanks to [Nikola D](https://www.frontendmentor.io/profile/Nikola1232456) for suggesting me to reset CSS on my previous solution, aka [News homepage](https://binh2.github.io/news-homepage/).
